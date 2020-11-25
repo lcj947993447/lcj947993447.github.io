@@ -34,7 +34,8 @@
       $.each(t, function () {
         d[this.name] = this.value;
       })
-      Cookies.set('login', JSON.stringify(d), { maxAge: 60 })
+      var inFifteenMinutes = new Date(new Date().getTime() + 60 * 1000);
+      Cookies.set('login', JSON.stringify(d), { expires: inFifteenMinutes })
       window.location = './index.html'
     })
   </script>
