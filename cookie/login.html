@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>login</title>
+  <style>
+.wrapper {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <form id="from">
+      <div class="text">账号：</div>
+      <input name="name" type="text" value="1">
+      <div class="text">密码：</div>
+      <input name="password" type="text" value="2"><br>
+      <button type="button" class="e-login">登录</button>
+    </form>
+  </div>
+  <script type="text/javascript" src="../static/jquery.min.js"></script>
+  <script type="module">
+    import Cookies from 'https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.mjs'
+    $('.e-login').click(function (event) {
+      var d = {}
+      var t = $('form').serializeArray()
+      $.each(t, function () {
+        d[this.name] = this.value;
+      })
+      Cookies.set('login', JSON.stringify(d), { expires: 60 })
+      window.location = './index.html'
+    })
+  </script>
+</body>
+
+</html>
