@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>dom/bom</title>
+  <style type="text/css">
+    .list ul {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    offsetWidth：dom 可视宽度，包括滚动条等边线，会随窗口的显示大小改变<br>
+    clientWidth：dom 可视宽度，不包括滚动条等边线，会随窗口的显示大小改变<br>
+    scrollWidth：dom 实际内容宽度，不包括边线宽度，会随dom中内容的多少改变<br>
+  </div>
+  <div class="wrapper">
+    <ul class="list">
+      <li>
+        <span>男子</span>
+        <ul>
+          <li>
+            <span>上装</span>
+            <ul>
+              <li><span>衣服1</span></li>
+              <li><span>衣服2</span></li>
+              <li><span>衣服3</span></li>
+              <li><span>衣服4</span></li>
+            </ul>
+          </li>
+          <li>
+            <span>鞋类</span>
+            <ul>
+              <li><span>运动鞋1</span></li>
+              <li><span>运动鞋2</span></li>
+              <li><span>运动鞋3</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span>女子</span>
+        <ul>
+          <li>
+            <span>上装</span>
+            <ul>
+              <li><span>衣服1</span></li>
+              <li><span>衣服2</span></li>
+              <li><span>衣服3</span></li>
+              <li><span>衣服4</span></li>
+            </ul>
+          </li>
+          <li>
+            <span>鞋类</span>
+            <ul>
+              <li><span>运动鞋1</span></li>
+              <li><span>运动鞋2</span></li>
+              <li><span>运动鞋3</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="./static/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(".list").on('click', 'li', function (event) {
+      $(this).children('span').siblings('ul').toggle()
+      event.stopPropagation()
+    })
+  </script>
+</body>
+
+</html>
