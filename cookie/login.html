@@ -17,6 +17,7 @@
 
 <body>
   <div class="wrapper">
+
     <form id="from">
       <div class="text">账号：</div>
       <input name="name" type="text" value="1">
@@ -25,6 +26,58 @@
       <button type="button" class="e-login">登录</button>
     </form>
   </div>
+  <div>
+    <h3>1</h3>
+    <p>1）在浏览器的application中的cookies中查看</p>
+    <p>2）在浏览器的network中请求的请求头查看</p>
+    <p>3）通过js获取在浏览器中打印</p>
+    <h3>2</h3>
+    <div>
+      1、存储位置不同<br>
+      cookie的数据信息存放在客户端浏览器上。<br>
+      session的数据信息存放在服务器上。
+    </div>
+    <div>
+      2、存储容量不同<br>
+      单个cookie保存的数据&lt;=4KB，一个站点最多保存20个Cookie。<br>
+      对于session来说并没有上限，但出于对服务器端的性能考虑，session内不要存放过多的东西，并且设置session删除机制。
+    </div>
+    <div>
+      3、存储方式不同<br>
+      cookie中只能保管ASCII字符串，并需要通过编码方式存储为Unicode字符或者二进制数据。<br>
+      session中能够存储任何类型的数据，包括且不限于string，integer，list，map等。
+    </div>
+    <div>
+      4、隐私策略不同<br>
+      cookie对客户端是可见的，别有用心的人可以分析存放在本地的cookie并进行cookie欺骗，所以它是不安全的。<br>
+      session存储在服务器上，对客户端是透明对，不存在敏感信息泄漏的风险。
+    </div>
+    <div>
+      5、有效期上不同<br>
+      开发可以通过设置cookie的属性，达到使cookie长期有效的效果。<br>
+      session依赖于名为JSESSIONID的cookie，而cookie JSESSIONID的过期时间默认为-1，只需关闭窗口该session就会失效，因而session不能达到长期有效的效果。
+    </div>
+    <div>
+      6、服务器压力不同<br>
+      cookie保管在客户端，不占用服务器资源。对于并发用户十分多的网站，cookie是很好的选择。<br>
+      session是保管在服务器端的，每个用户都会产生一个session。假如并发访问的用户十分多，会产生十分多的session，耗费大量的内存。
+    </div>
+    <div>
+      7、浏览器支持不同<br>
+      假如客户端浏览器不支持cookie：<br>
+      cookie是需要客户端浏览器支持的，假如客户端禁用了cookie，或者不支持cookie，则会话跟踪会失效。关于WAP上的应用，常规的cookie就派不上用场了。<br>
+      运用session需要使用URL地址重写的方式。一切用到session程序的URL都要进行URL地址重写，否则session会话跟踪还会失效。<br>
+      假如客户端支持cookie：<br>
+      cookie既能够设为本浏览器窗口以及子窗口内有效，也能够设为一切窗口内有效。<br>
+      session只能在本窗口以及子窗口内有效
+    </div>
+    <div>
+      8、跨域支持上不同<br>
+      cookie支持跨域名访问。<br>
+      session不支持跨域名访问。
+    </div>
+  </div>
+
   <script type="text/javascript" src="../static/jquery.min.js"></script>
   <script type="module">
     import Cookies from 'https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.mjs'
